@@ -12,6 +12,7 @@ RegisterServerEvent("utk_creditHack")
 AddEventHandler("utk_creditHack", function()
     local _source = source
     local amount = math.random(mincredit, maxcredit)
+    playerCounters[xPlayer.identifier] = playerCounters[xPlayer.identifier] - 1
 
     TriggerEvent("utk_c:addcredit", _source, amount)
 end)
