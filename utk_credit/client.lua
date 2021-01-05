@@ -995,11 +995,12 @@ OpenWepShop = function() -- This is a bit complicated because I had something di
 end
 
 function GetCredit()
-    local amount = 0
+    local amount = nil
 
     ESX.TriggerServerCallback("utk_c:getcredit", function(output)
         amount = tonumber(output)
     end)
+    while amount == nil do Citizen.Wait(1) end
     return amount
 end
 
